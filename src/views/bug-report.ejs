@@ -1,0 +1,54 @@
+<!-- views/bug-report.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bug Report</title>
+    </head>
+    <body>
+        <h1>Report a Bug</h1>
+        <form id="bugReportForm">
+            <textarea
+                id="bugCode"
+                name="code"
+                placeholder="Enter JavaScript code..."
+                required
+            ></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="bugReportMessage"></div>
+
+        <script>
+            document
+                .getElementById("bugReportForm")
+                .addEventListener("submit", async function (event) {
+                    event.preventDefault();
+
+                    const code = document.getElementById("bugCode").value;
+
+                    try {
+                        // Send code to backend for syntax error detection
+                        const response = await fetch("/report-bug", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({ code }),
+                        });
+                        const data = await response.json();
+
+                        // Display result on frontend
+                        document.getElementById(
+                            "bugReportMessage"
+                        ).innerHTML = `<p>${data.message}</p>`;
+                    } catch (error) {
+                        console.error("Error reporting bug:", error);
+                        document.getElementById("bugReportMessage").innerHTML =
+                            "<p>An error occurred. Please try again.</p>";
+                    }
+                });
+        </script>
+    </body>
+</html>
