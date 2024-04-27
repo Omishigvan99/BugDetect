@@ -68,6 +68,6 @@ app.get("/", (req, res) => {
 });
 
 // 7. Start the server
-app.listen(PORT || 8000, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(process.env.PORT || 8000, () => {
+    console.log(`Server is running on port ${process.env.PORT || 8000}`);
 });
