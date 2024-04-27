@@ -2,6 +2,79 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right top, #0f2027, #203a43, #2c5364);
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        textarea {
+            width: 50%; /* Set textarea width to 50% */
+            height: 200px;
+            padding: 10px;
+            margin: center; /* Center textarea horizontally */
+            margin-bottom: 10px;
+            margin-left: 25%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            font-size: 16px;
+        }
+        
+        button {
+            display: block;
+            width: 10%;
+            padding: 10px 20px;
+            background-color: #306297;
+            margin-left: 45%;
+            color: #fff;
+            border: beige;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #bugReportMessage {
+            margin-top: 20px;
+            width: 50%; 
+            margin-left: 25%;
+            padding: 15px;
+            border-radius: 5px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        #bugReportMessage p {
+            margin: 0;
+            padding: 0;
+        }
+        </style>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Bug Report</title>
